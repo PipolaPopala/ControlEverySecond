@@ -6,12 +6,13 @@
 
 <template>
 <!--    <Head title="Home"/> // если внутри нужен только заголовок, то можно соратить вот так -->
+<!--    <Head :title="$page.component"/> // если внутри нужен только заголовок, то можно соратить вот так -->
     <Head>
-        <title>Home</title>
+        <title>{{$page.component}}</title>
         <meta head-key="description" name="description" content="This is home page description">
     </Head>
 
     <h1>
-        Home
+        Home page
     </h1>
 </template>
