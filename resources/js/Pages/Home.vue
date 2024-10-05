@@ -12,7 +12,5 @@
         <meta head-key="description" name="description" content="This is home page description">
     </Head>
 
-    <h1>
-        Home page
-    </h1>
+    <h1>Home page</h1>
 </template>
