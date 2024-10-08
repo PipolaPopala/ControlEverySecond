@@ -12,14 +12,14 @@ class AuthController extends Controller
     {
         sleep(1);
         // validate
-        $data = $request->validate([
+        $fields = $request->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed'],
         ]);
 
         // register
-        $user = User::create($data);
+        $user = User::create($fields);
 
         // login
         Auth::login($user);
@@ -27,5 +27,34 @@ class AuthController extends Controller
         // redirect
 //        return redirect('/');
         return redirect()->route('home');
+    }
+
+    public function Login(Request $request)
+    {
+        $fields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($fields, $request->remember)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

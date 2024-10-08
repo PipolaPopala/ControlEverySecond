@@ -15,7 +15,18 @@ use Inertia\Inertia;
 //})->name('home');
 Route::inertia('/', 'Home')->name('home');
 
-Route::inertia('/register', 'Register')->name('register');
+Route::middleware('auth')->group(function () {
+    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
 
-Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::inertia('/register', 'Register')->name('register');
+    Route::post('/register', [AuthController::class, 'register']);
+
+    Route::inertia('/login', 'Login')->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+});
+
 
