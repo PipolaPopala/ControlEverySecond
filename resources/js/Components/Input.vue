@@ -19,6 +19,6 @@ const model = defineModel({
 
 <template>
     <label :for="name">{{ name }}</label>
-    <input :id="name" :type="type" v-model="model" :class="{'!ring-red-500': message}"/>
+    <input :id="name" :type="type" :name="name" v-model="model" :class="{'!ring-red-500': message}"/>
     <small class="error" v-if="message">{{ message }}</small>
 </template>
