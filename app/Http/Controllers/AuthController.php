@@ -33,7 +33,7 @@ class AuthController extends Controller
 
         // redirect
 //        return redirect('/');
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('greet', 'Your account has been created.');
     }
 
     public function Login(Request $request)

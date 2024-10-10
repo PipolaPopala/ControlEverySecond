@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,12 +14,15 @@ use Inertia\Inertia;
 ////    sleep(1);
 //    return Inertia::render('Home');
 //})->name('home');
+
 Route::inertia('/', 'Home')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::inertia('/users', 'Users', ['users' => User::paginate(5)])->name('users');
 });
 
 Route::middleware('guest')->group(function () {

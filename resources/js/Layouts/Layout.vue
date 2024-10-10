@@ -12,6 +12,7 @@
 
                 <div v-if="$page.props.auth.user" class="space-x-6 flex">
                     <img class="avatar" :src=" $page.props.auth.user.avatar ? ('storage/' + $page.props.auth.user.avatar) : 'storage/avatars/default.png'" alt="avatar">
+                    <Link :href="route('users')" class="nav-link" :class="{'bg-slate-700' : $page.component === 'Users'}">Users</Link>
                     <Link :href="route('dashboard')" class="nav-link" :class="{'bg-slate-700' : $page.component === 'Dashboard'}">Dashboard</Link>
                     <Link :href="route('logout')" method="post" as="button" class="nav-link">Logout</Link>
                 </div>
