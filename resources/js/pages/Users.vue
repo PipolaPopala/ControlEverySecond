@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
-import PaginationLinks from "../Components/PaginationLinks.vue";
+import PaginationLinks from "@/components/PaginationLinks.vue";
 import { router } from "@inertiajs/vue3";
 import { debounce } from "lodash";
 

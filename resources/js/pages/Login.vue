@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-import Input from '../Components/Input.vue'
+import Input from '@/components/InputCustom.vue'
 
 const form = useForm({
     email: null,

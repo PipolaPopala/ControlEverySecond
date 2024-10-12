@@ -1,5 +1,5 @@
 <script setup>
-// import Layout from "../Layouts/Layout.vue"
+// import Layout from "../layouts/Layout.vue"
 // defineOptions({layout: Layout}) // если для конкретной странице нужно задать конкретный лейаут
 
 </script>
