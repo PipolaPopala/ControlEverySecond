@@ -1,6 +1,7 @@
 <script setup>
 // import Layout from "../layouts/Layout.vue"
 // defineOptions({layout: Layout}) // если для конкретной странице нужно задать конкретный лейаут
+import { Button } from '@/components/ui/button'
 
 </script>
 
@@ -13,4 +14,7 @@
     </Head>
 
     <h1>Home page</h1>
+
+    <button onclick="console.log('click')">Click ME MZF!</button>
+    <Button onclick="console.log('click')">Click ME MZF!</Button>
 </template>
