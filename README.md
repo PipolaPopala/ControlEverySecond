@@ -29,6 +29,14 @@ touch database/database.sqlite
 php artisan migrate
 ```
 
+### Link avatars to public and add default avatar
+
+```shell
+php artisan storage:link
+mkdir storage/app/public/avatars
+cp default.webp storage/app/public/avatars/
+```
+
 ### Start the app
 
 ```shell

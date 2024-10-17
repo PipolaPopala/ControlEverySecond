@@ -41,7 +41,7 @@ const submit = () => {
 
                 <img
                     class="object-cover w-28 h-28"
-                    :src="form.preview ?? 'storage/avatars/default.png'"
+                    :src="form.preview ?? 'storage/avatars/default.webp'"
                 />
             </div>
 
